@@ -16,13 +16,13 @@ object FrontendRunHook {
       /**
         * Change the commands in `FrontendCommands.scala` if you want to use Yarn.
         */
-      var install: String = FrontendCommands.dependencyInstall
-      var run: String = FrontendCommands.serve
+      var install: String = FrontendCommands.install
+      var start: String = FrontendCommands.start
 
       // Windows requires npm commands prefixed with cmd /c
       if (System.getProperty("os.name").toLowerCase().contains("win")){
         install = "cmd /c" + install
-        run = "cmd /c" + run
+        start = "cmd /c" + start
       }
 
       /**
@@ -39,7 +39,7 @@ object FrontendRunHook {
         */
       override def afterStarted(): Unit = {
         process = Option(
-          Process(run, base / "ui").run
+          Process(start, base / "ui").run
         )
       }
 
