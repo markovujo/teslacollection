@@ -26,7 +26,7 @@ def isNodeModulesInstalled(implicit dir: File): Boolean = (dir / "node_modules")
 
 // Execute `npm install` command to install all node module dependencies. Return Success if already installed.
 def runNpmInstall(implicit dir: File): Int =
-  if (isNodeModulesInstalled) Success else runOnCommandline(FrontendCommands.dependencyInstall)
+  if (isNodeModulesInstalled) Success else runOnCommandline(FrontendCommands.install)
 
 // Execute task if node modules are installed, else return Error status.
 def ifNodeModulesInstalled(task: => Int)(implicit dir: File): Int =

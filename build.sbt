@@ -1,6 +1,7 @@
 name := """scala-play-react-seed"""
 
 version := "1.0-SNAPSHOT"
+maintainer := "marko.vujo@gmail.com"
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala).settings(
   watchSources ++= (baseDirectory.value / "public/ui" ** "*").get
